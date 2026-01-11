@@ -1,76 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>BOOSE Project Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOSE | Project Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #10b981;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 {
-            text-align: center;
-            color: #333;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
+
         .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            margin: 0 auto;
         }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
         ul {
-            list-style-type: none;
-            padding-left: 0;
+            list-style: none;
         }
+
         li {
-            padding: 8px 0;
+            margin-bottom: 12px;
         }
+
         a {
             text-decoration: none;
-            color: #0066cc;
-            font-size: 18px;
+            color: var(--text-main);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
         }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.2);
+            transform: translateX(6px);
         }
-        .section-title {
-            margin-top: 30px;
-            color: #444;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
+
+        .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: var(--border);
+            color: var(--text-dim);
+            margin-left: auto;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>BOOSE Project Documentation</h1>
-    <p>Welcome to the automatically generated documentation for the BOOSE interpreter project.</p>
+    <div class="container">
+        <header>
+            <h1>BOOSE</h1>
+            <p class="subtitle">Complete Technical Documentation for the BOOSE Interpreter Project</p>
+        </header>
 
-    <h2 class="section-title">Core Classes</h2>
-    <ul>
-        <li><a href="BOOSEContext.html">BOOSEContext</a></li>
-        <li><a href="IBOOSE.html">IBOOSE</a></li>
-        <li><a href="BOOSEParseException.html">BOOSEParseException</a></li>
-        <li><a href="Form1.html">Form1</a></li>
-        <li><a href="Test.html">Test</a></li>
-    </ul>
+        <div class="grid">
+            <!-- Core Components -->
+            <div class="section">
+                <h2 class="section-title">Core Engine</h2>
+                <ul>
+                    <li><a href="Program.html">Program <span class="tag">Main</span></a></li>
+                    <li><a href="BOOSEContext.html">BOOSEContext <span class="tag">State</span></a></li>
+                    <li><a href="CommandFactory.html">CommandFactory <span class="tag">Factory</span></a></li>
+                    <li><a href="ExpressionEvaluator.html">ExpressionEvaluator <span class="tag">Parser</span></a></li>
+                    <li><a href="BOOSEParseException.html">BOOSEParseException <span class="tag">Error</span></a></li>
+                    <li><a href="Form1.html">Form1 <span class="tag">UI</span></a></li>
+                </ul>
+            </div>
 
-    <h2 class="section-title">Commands</h2>
-    <ul>
-        <li><a href="MoveToCommand.html">MoveToCommand</a></li>
-        <li><a href="DrawToCommand.html">DrawToCommand</a></li>
-        <li><a href="CircleCommand.html">CircleCommand</a></li>
-        <li><a href="RectCommand.html">RectCommand</a></li>
-        <li><a href="PenColourCommand.html">PenColourCommand</a></li>
-        <li><a href="WriteCommand.html">WriteCommand</a></li>
-    </ul>
+            <!-- Drawing Commands -->
+            <div class="section">
+                <h2 class="section-title">Graphics Commands</h2>
+                <ul>
+                    <li><a href="MovetoCommand.html">MoveToCommand</a></li>
+                    <li><a href="DrawToCommand.html">DrawToCommand</a></li>
+                    <li><a href="CircleCommand.html">CircleCommand</a></li>
+                    <li><a href="RectCommand.html">RectCommand</a></li>
+                    <li><a href="PenColourCommand.html">PenColourCommand</a></li>
+                </ul>
+            </div>
 
-</div>
+            <!-- Program Flow -->
+            <div class="section">
+                <h2 class="section-title">Program Flow</h2>
+                <ul>
+                    <li><a href="IfCommand.html">IfCommand</a></li>
+                    <li><a href="WhileCommand.html">WhileCommand</a></li>
+                    <li><a href="ForCommand.html">ForCommand</a></li>
+                    <li><a href="MethodDefinition.html">MethodDefinition</a></li>
+                    <li><a href="CallCommand.html">CallCommand</a></li>
+                </ul>
+            </div>
+
+            <!-- Data & Logic -->
+            <div class="section">
+                <h2 class="section-title">Data & Logic</h2>
+                <ul>
+                    <li><a href="LetCommand.html">LetCommand</a></li>
+                    <li><a href="ArrayCommand.html">ArrayCommand</a></li>
+                    <li><a href="PeekCommand.html">PeekCommand</a></li>
+                    <li><a href="PokeCommand.html">PokeCommand</a></li>
+                    <li><a href="WriteCommand.html">WriteCommand</a></li>
+                    <li><a href="IBOOSECommand.html">IBOOSECommand <span class="tag">Interface</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Unit Tests -->
+            <div class="section">
+                <h2 class="section-title">Quality Assurance</h2>
+                <ul>
+                    <li><a href="BasicDrawingTests.html">BasicDrawingTests</a></li>
+                    <li><a href="ArrayTests.html">ArrayTests</a></li>
+                    <li><a href="VariableTests.html">VariableTests</a></li>
+                    <li><a href="RealTests.html">RealTests</a></li>
+                    <li><a href="ConditionalTests.html">ConditionalTests</a></li>
+                    <li><a href="LoopTests.html">LoopTests</a></li>
+                    <li><a href="MethodTests.html">MethodTests</a></li>
+                    <li><a href="FullProgramTests.html">FullProgramTests</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>

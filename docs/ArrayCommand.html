@@ -7,12 +7,13 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property class</div>
+    <div id="PageTitle">Class ArrayCommand</div>
     <div id="Contents" />
 
     
- Main WinForms interface for the BOOSE interpreter.
- Provides program editor, drawing canvas, output console and controls.
+ Declares an array with a specified size.
+ Syntax: array int arrayName size
+ Syntax: array real arrayName size
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\aarso\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -27,7 +28,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public partial class Form1 : Form</pre></td></tr></tbody></table>
+    public class ArrayCommand : IBOOSECommand</pre></td></tr></tbody></table>
     
     
     
@@ -41,11 +42,13 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method LoadDefaultProgram</div>
+    <div id="PageTitle">Method Parse</div>
     <div id="Contents" />
 
     
- Loads a default BOOSE program into the editor.
+ Parses an array declaration command.
+ Example: array int nums 10
+ Example: array real prices 20
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\aarso\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -60,7 +63,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private void LoadDefaultProgram()</pre></td></tr></tbody></table>
+    public static ArrayCommand Parse(string args)</pre></td></tr></tbody></table>
     
     
     
